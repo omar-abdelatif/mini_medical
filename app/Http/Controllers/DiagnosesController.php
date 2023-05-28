@@ -37,4 +37,19 @@ class DiagnosesController extends Controller
         }
         return redirect()->route('diagnoses.index', $diagnoses->patient_id)->withErrors('حدث خطأ ما برجاء المحاولة مره اخرى');
     }
+    public function update(Request $request)
+    {
+        $validated = $request->validate([
+            'diagnose' => 'required',
+            'cure' => 'required'
+        ]);
+        $diagnoses = Diagnoses::find($request->id);
+        if ($diagnoses) {
+            $update = $diagnoses->update($validated);
+            if ($update) {
+                return redirect()->route('diagnoses.index', $diagnoses->patient_id)->with('success', 'تم التعديل بنجاح');
+            }
+        }
+        return redirect()->route('diagnoses.index', $diagnoses->patient_id)->withErrors($validated);
+    }
 }

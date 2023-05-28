@@ -30,4 +30,5 @@ Route::middleware('auth')->group(function () {
     Route::get('diagnoses/{id}', [DiagnosesController::class, 'index'])->name('diagnoses.index');
     Route::post('create', [DiagnosesController::class, 'create'])->name('diagnoses.create');
     Route::get('destroydiagnoses/{id}', [DiagnosesController::class, 'destroy'])->name('diagnoses.destroy');
+    Route::post('updatediagnoses', [DiagnosesController::class, 'update'])->name('diagnoses.update');
 });

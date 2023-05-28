@@ -101,9 +101,52 @@
                                         <td class="text-center">{{ $i++ }}</td>
                                         <td class="text-center">{{ $diagnose->created_at->format('d-m-Y') }}</td>
                                         <td class="text-center">
-                                            <a href="" class="btn btn-warning">
-                                                <b>تعديل</b>
-                                            </a>
+                                            <button type="button" class="btn btn-warning rounded" data-coreui-toggle="modal" data-coreui-target="#edit{{$diagnose->id}}" data-coreui-whatever="@mdo">
+                                                <b>المزيد</b>
+                                            </button>
+                                            <div class="modal fade" id="edit{{$diagnose->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title text-decoration-underline text-dark" id="exampleModalLabel">تعديل التشخيص الخاص ب{{$patient->name}}</h1>
+                                                            <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body bg-dark">
+                                                            <form action="{{route('diagnoses.update')}}" method="post">
+                                                                @csrf
+                                                                <div class="container-fluid">
+                                                                    <div class="row">
+                                                                        <input type="hidden" class="form-control" name="id" value="{{$diagnose->id}}">
+                                                                        <div class="col-6">
+                                                                            <div class="form-group">
+                                                                                <label for="diagnose">
+                                                                                    <b>التشخيص</b>
+                                                                                </label>
+                                                                                <textarea name="diagnose" id="diagnose" class="form-control mb-3 text-center pt-3" id="diagnose" cols="30" rows="10" placeholder="التشخيص الكامل">{{$diagnose->diagnose}}</textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="form-group">
+                                                                                <label for="cure">
+                                                                                    <b>العلاج</b>
+                                                                                </label>
+                                                                                <textarea name="cure" class="form-control mb-3 text-center pt-3" id="cure" cols="30" rows="10" placeholder="العلاج">{{$diagnose->cure}}</textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-12">
+                                                                            <div class="field mt-3">
+                                                                                <button type="submit" class="btn btn-success w-100 text-white">
+                                                                                    <b>تعديل</b>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <a href="{{route('diagnoses.destroy', $diagnose->id)}}" class="btn btn-danger">
                                                 <b>حذف</b>
                                             </a>
@@ -111,7 +154,7 @@
                                     </tr>
                                 @endforeach
                             @else
-                                <h1 class="text-center">لا توجد تشخيصات</h1>
+                                <h1 class="text-center mt-4">لا توجد تشخيصات</h1>
                             @endif
                         </tbody>
                     </table>
@@ -137,7 +180,7 @@
                                         <label for="diagnose">
                                             <b>التشخيص</b>
                                         </label>
-                                        <textarea name="diagnose" id="" class="form-control mb-3 text-center pt-3" id="diagnose" cols="30" rows="10" placeholder="التشخيص الكامل"></textarea>
+                                        <textarea name="diagnose" id="diagnose" class="form-control mb-3 text-center pt-3" id="diagnose" cols="30" rows="10" placeholder="التشخيص الكامل"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-6">
