@@ -39,9 +39,8 @@ class DiagnosesController extends Controller
     }
     public function update(Request $request)
     {
-        $validated = $request->validate([
-            'diagnose' => 'required',
-            'cure' => 'required'
+        $validated = $request->validate(['diagnose' => 'required|string',
+            'cure' => 'required|string'
         ]);
         $diagnoses = Diagnoses::find($request->id);
         if ($diagnoses) {
