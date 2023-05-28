@@ -5,16 +5,6 @@ use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('auth.login');
@@ -39,4 +29,5 @@ Route::middleware('auth')->group(function () {
     //! Diagnoses Routes
     Route::get('diagnoses/{id}', [DiagnosesController::class, 'index'])->name('diagnoses.index');
     Route::post('create', [DiagnosesController::class, 'create'])->name('diagnoses.create');
+    Route::get('destroydiagnoses/{id}', [DiagnosesController::class, 'destroy'])->name('diagnoses.destroy');
 });

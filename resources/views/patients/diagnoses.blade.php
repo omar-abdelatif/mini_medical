@@ -67,11 +67,58 @@
     </header>
 @endsection
 @section('content')
-    <h1 class="text-center mt-5">This Patient With Name {{$patient->name}} Has Diagnoses With Count
-        {{
-            $patient->diagnoses
-        }}
-    </h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="diagnoses">
+                <div class="diagmoses-title text-center text-white bg-dark p-3 rounded mt-5 w-50 mx-auto">
+                    <h2>التشخيصات السابقة "ل{{$patient->name}}"</h2>
+                </div>
+                <div class="diagnoses-content">
+                    @if (session('success'))
+                        <div class="alert alert-success text-center mt-5">
+                            <p class="mb-0">{{ session('success') }}</p>
+                        </div>
+                    @elseif ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger text-center mt-5">
+                                <p class="mb-0">{{ $error }}</p>
+                            </div>
+                        @endforeach
+                    @endif
+                    <table id="table" class="table table-dark table-hover table-striped borderd-table display align-middle text-center mt-5" data-order='[[ 0, "asc" ]]' data-page-length='10'>
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">تاريخ التشخيص</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1 ?>
+                            @if ($diagnosesCount > 0)
+                                @foreach ($diagnoses as $diagnose)
+                                    <tr>
+                                        <td class="text-center">{{ $i++ }}</td>
+                                        <td class="text-center">{{ $diagnose->created_at->format('d-m-Y') }}</td>
+                                        <td class="text-center">
+                                            <a href="" class="btn btn-warning">
+                                                <b>تعديل</b>
+                                            </a>
+                                            <a href="{{route('diagnoses.destroy', $diagnose->id)}}" class="btn btn-danger">
+                                                <b>حذف</b>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <h1 class="text-center">لا توجد تشخيصات</h1>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="addnew" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
