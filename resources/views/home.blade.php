@@ -65,7 +65,7 @@
             <div class="col-6">
                 <div class="card">
                     <div class="card-header">
-                        <img src="{{asset('assets/imgs/png-clipart-person-logo-people-travel-text-rectangle-thumbnail.png')}}" width="200" alt="">
+                        <img src="{{asset('assets/imgs/diagnosis.png')}}" width="200" alt="">
                         <h4 class="text-center">عدد التشخيصات</h4>
                     </div>
                     <div class="card-body">
@@ -75,12 +75,4 @@
             </div>
         </div>
     </div>
-    {{-- <div class="card mb-4">
-        <div class="card-header">
-            {{ __('Dashboard') }}
-        </div>
-        <div class="card-body">
-            {{ __('You are logged in!') }}
-        </div>
-    </div> --}}
 @endsection
