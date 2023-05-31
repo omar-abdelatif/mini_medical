@@ -19,7 +19,7 @@ class PatientController extends Controller
             'name' => 'required|string',
             'ssn' => 'required|unique:patients',
             'address' => 'required|string',
-            'phone' => 'required|integer',
+            'phone' => 'required|numeric',
             'birthdate' => 'required|date',
             'military_number' => 'required|integer',
             'gender' => 'required|string',

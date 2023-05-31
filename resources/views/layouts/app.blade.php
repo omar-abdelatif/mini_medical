@@ -9,22 +9,19 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap5.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.dataTables.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     @vite('resources/sass/app.scss')
 </head>
 <body>
-<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+<div class="sidebar sidebar-success sidebar-fixed" id="sidebar">
     <div class="sidebar-brand d-none d-md-flex">
-        <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="{{ asset('icons/brand.svg#full') }}"></use>
-        </svg>
-        <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
-            <use xlink:href="{{ asset('icons/brand.svg#signet') }}"></use>
-        </svg>
+        <h3 class="text-center sidebar-brand-full" width="118" height="46">الخدمات الطبية</h3>
+        <img src="{{asset('assets/imgs/il_794xN.2591975979_qdfz.jpg')}}" class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
     </div>
     @include('layouts.navigation')
     <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
 </div>
-<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+<div class="wrapper d-flex flex-column min-vh-100 bg-success">
     @yield('header')
     <div class="body flex-grow-1 px-3">
         <div class="container-lg">

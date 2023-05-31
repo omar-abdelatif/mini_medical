@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('header')
-    <header class="header header-sticky mb-5">
+    <header class="header header-sticky mb-5 nav-success">
         <div class="container-fluid">
             <button class="header-toggler px-md-0 me-md-3" type="button"
                 onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
@@ -49,12 +49,38 @@
     </header>
 @endsection
 @section('content')
-    <div class="card mb-4">
+    <div class="d-flex justify-content-center align-items-center w-100 mt-5" height="80vh">
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <img src="{{asset('assets/imgs/png-clipart-person-logo-people-travel-text-rectangle-thumbnail.png')}}" width="200" alt="">
+                        <h4 class="text-center">عدد الأشخاص</h4>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="text-center">{{$patientCount}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <img src="{{asset('assets/imgs/png-clipart-person-logo-people-travel-text-rectangle-thumbnail.png')}}" width="200" alt="">
+                        <h4 class="text-center">عدد التشخيصات</h4>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="text-center">{{$diagnosesCount}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="card mb-4">
         <div class="card-header">
             {{ __('Dashboard') }}
         </div>
         <div class="card-body">
             {{ __('You are logged in!') }}
         </div>
-    </div>
+    </div> --}}
 @endsection

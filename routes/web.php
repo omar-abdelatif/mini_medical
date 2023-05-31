@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DiagnosesController;
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    //! Dashboard Routes
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     //! Lieutenant
     Route::get('all_lieutenant', [PatientController::class, 'index'])->name('lieutenant.index');
     Route::post('store', [PatientController::class, 'store'])->name('lieutenant.store');

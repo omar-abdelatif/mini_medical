@@ -1,6 +1,6 @@
 <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('home') }}">
+        <a class="nav-link" href="{{ route('dashboard.index') }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('icons/coreui.svg#cil-speedometer') }}"></use>
             </svg>
@@ -17,7 +17,7 @@
         </a>
     </li>
 
-    <li class="nav-group" aria-expanded="false">
+    {{-- <li class="nav-group" aria-expanded="false">
         <a class="nav-link nav-group-toggle" href="#">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('icons/coreui.svg#cil-star') }}"></use>
@@ -42,5 +42,5 @@
                 </a>
             </li>
         </ul>
-    </li>
+    </li> --}}
 </ul>
