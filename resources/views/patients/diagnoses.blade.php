@@ -55,6 +55,9 @@
                             <li class="breadcrumb-item">
                                 <a href="{{ route('dashboard.index') }}">الرئيسية</a>
                             </li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('lieutenant.index') }}">كل الظباط</a>
+                            </li>
                             <li class="breadcrumb-item active text-dark">كل التشخيصات</li>
                         </ol>
                         <button type="button" class="btn btn-success" data-coreui-toggle="modal" data-coreui-target="#addnew" data-coreui-whatever="@mdo">

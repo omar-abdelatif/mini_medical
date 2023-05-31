@@ -49,7 +49,7 @@
     </header>
 @endsection
 @section('content')
-    <div class="d-flex justify-content-center align-items-center w-100 mt-5" height="80vh">
+    {{-- <div class="d-flex justify-content-center align-items-center w-100 mt-5" height="80vh">
         <div class="row">
             <div class="col-6">
                 <div class="card">
@@ -74,5 +74,9 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    <div class="card">
+        <div class="card-header">Dashboard..</div>
+        <div class="card-body">Logged in...</div>
     </div>
 @endsection
